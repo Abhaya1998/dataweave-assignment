@@ -8,3 +8,4 @@ We are currently running three apps.
 3. Api :- It will be used to fetch score, data throught GET method.
 
 Celery Framework is being used here.
+Sample request/response is in images folder
