@@ -1,0 +1,25 @@
+version: "3"
+services:  
+  worker-insert:
+    network_mode: host
+    container_name: worker-insert
+    build:
+      context: .
+    env_file: .env
+    command: ['celery','-A', 'workers.insertWorker', 'worker', '-l','info', '-c','1', '-E']
+
+  producer:
+    network_mode: host
+    container_name: producer
+    build:
+      context: .
+    env_file: .env
+    command: ['python','components/producer.py']
+
+  api:
+    network_mode: host
+    container_name: api
+    build:
+      context: .
+    env_file: .env
+    command: ['python','main.py']

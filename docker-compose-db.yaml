@@ -1,0 +1,21 @@
+version: "3"
+services:  
+  postgres:
+    network_mode: host
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    # ports:
+    #   - '5432:5432'
+  
+  rabbitmq:
+    network_mode: host
+    image: rabbitmq:3
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=password
+    # ports:
+    #   - '5672:5672'
